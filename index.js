@@ -20,8 +20,8 @@ con.connect(err => {
 });
 
 
-app.get('/', function(req, res) {
-  con.query("SELECT nome, criado_em FROM usuarios", function (err, result, fields) {
+app.get('/', (req, res)=> {
+  con.query("SELECT * FROM usuarios", function (err, result, fields) {
     if (err) {
       console.log(err);
       res.json(err);
@@ -30,10 +30,6 @@ app.get('/', function(req, res) {
   }); 
 });
 
-/*app.get('/',(req,res)=>{
-  res.send("num é que foi kkkkk")
-})
-*/
 
 
 app.post('/', (req, res)=> {

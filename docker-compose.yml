@@ -6,10 +6,8 @@ services:
       - database
     ports:
       - 3000:3000
-#    networks:
-#      - adminer-to-mysql
-    links:
-      - database
+    networks:
+      - adminer-to-mysql
     volumes:
       - .:/usr/src/app
     restart: always
