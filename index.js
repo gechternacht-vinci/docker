@@ -7,7 +7,7 @@ const HOST = '0.0.0.0';
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
  
-var con = mysql.createConnection({
+let con = mysql.createConnection({
   host: 'BDFAETERJ',
   user: 'root',
   password: 'root',
@@ -16,7 +16,7 @@ var con = mysql.createConnection({
 
 con.connect(err => {
  if(err){console.log(err)}else{
-  console.log("AGORA FOI KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK")}
+  console.log("AGORA FOI")}
 });
 
 
