@@ -16,12 +16,12 @@ let con = mysql.createConnection({
 
 con.connect(err => {
  if(err){console.log(err)}else{
-  console.log("AGORA FOI")}
+  console.log("Connected")}
 });
 
 
 app.get('/', (req, res)=> {
-  con.query("SELECT * FROM usuarios", function (err, result, fields) {
+  con.query("SELECT * FROM usuarios",(err, result, fields)=> {
     if (err) {
       console.log(err);
       res.json(err);
@@ -33,12 +33,12 @@ app.get('/', (req, res)=> {
 
 
 app.post('/', (req, res)=> {
-  con.query("INSERT INTO usuarios (nome, criado_em) VALUES (?)", [[req.body.nome, req.body.data]] , function (err, result, fields) {
+  con.query("INSERT INTO usuarios (nome, criado_em) VALUES (?)", [[req.body.nome, req.body.data]] , (err, result, fields)=> {
     if (err) {
       console.log(err);
       res.json(err);
     };
-    res.json("Número de tabelas inseridas: " + result.affectedRows);
+    res.json("Tables: " + result.affectedRows);
   }); 
 });
 
